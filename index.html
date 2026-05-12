@@ -78,11 +78,12 @@
 
     .meta{
       display:flex;
-      flex-wrap:wrap;
-      gap:8px 14px;
+      flex-direction:column;
+      gap:6px;
       margin-top:18px;
       color:var(--quiet);
       font-size:12px;
+      align-items:flex-start;
     }
 
     .chip{
@@ -94,14 +95,7 @@
     }
 
     .chip b{color:var(--ink);font-weight:650}
-
-    .chip:not(:last-child)::after{
-      content:"/";
-      color:rgba(232,218,246,.28);
-      margin-left:14px;
-    }
-
-    .intro-grid{
+.intro-grid{
       display:grid;
       grid-template-columns:1fr 1fr 1fr;
       gap:24px;
@@ -516,6 +510,56 @@
   max-width:70ch;
 }
 
+
+    .indie-list{
+      display:grid;
+      gap:14px;
+      margin-top:12px;
+    }
+
+    .indie-item{
+      border-top:1px solid var(--line);
+      padding-top:14px;
+    }
+
+    .indie-head{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:baseline;
+      gap:8px 12px;
+      margin-bottom:6px;
+    }
+
+    .indie-name{
+      color:#fbf7ff;
+      font-weight:760;
+      letter-spacing:-.025em;
+      font-size:22px;
+      text-decoration:none;
+    }
+
+    .indie-name:hover{
+      color:var(--accent);
+    }
+
+    .indie-status{
+      color:var(--quiet);
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    @media (max-width:640px){
+      .indie-name{
+        font-size:19px;
+      }
+
+      .indie-status{
+        font-size:11px;
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -550,10 +594,27 @@
     </div>
 
     <div class="block full" style="margin:18px 0 28px;">
-      <h3>Independent Work</h3>
-      <p>
-        Mobile-first FPS running at 60fps on web and Android. Designed and implemented end-to-end with a focus on continuous player state, system clarity, and deterministic behavior.
-      </p>
+      <h3>Independent Shipped Work</h3>
+      <div class="indie-list">
+        <div class="indie-item">
+          <div class="indie-head">
+            <a class="indie-name" href="https://lastnoise.github.io/inducta/">inducta</a>
+            <span class="indie-status">Shipped · Desktop + Mobile Browser Game</span>
+          </div>
+          <p>
+            Minimal deterministic systems game about pressure, economy, and board-state interaction. Designed, implemented, balanced, patched from player feedback, and shipped independently as a single-file HTML artifact.
+          </p>
+        </div>
+        <div class="indie-item">
+          <div class="indie-head">
+            <span class="indie-name">converge</span>
+            <span class="indie-status">In Development · Web + Android FPS</span>
+          </div>
+          <p>
+            Mobile-first FPS targeting 60fps on web and Android. Designed and implemented end-to-end with a focus on continuous player state, system clarity, deterministic behavior, and frictionless entry into play.
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="section-title">
